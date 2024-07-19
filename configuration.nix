@@ -8,6 +8,7 @@
 }: {
   imports = [
     inputs.nixos-apple-silicon.nixosModules.default
+    ./hardware-configuration.nix
   ];
 
   boot = {
