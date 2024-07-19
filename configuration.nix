@@ -13,9 +13,8 @@
   boot = {
     loader = {
       systemd-boot.enable = true;
-      efi.canTouchEfiVariables = lib.mkForce false;
+      efi.canTouchEfiVariables = false;
     };
-    kernelParams = lib.mkForce ["console=tty0"];
   };
 
   networking.wireless.iwd = {
@@ -32,8 +31,6 @@
   time.timeZone = "America/Los_Angeles";
 
   i18n.defaultLocale = "en_US.UTF-8";
-
-  users.users.root.password = "nixos";
 
   environment.systemPackages = with pkgs; [
     gh

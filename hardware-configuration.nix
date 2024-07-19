@@ -23,7 +23,7 @@
   };
 
   fileSystems."/boot" = {
-    device = lib.mkForce "/dev/disk/by-label/ESP";
+    device = lib.mkForce "/dev/disk/by-label/EFI - NIXOS";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
