@@ -14,10 +14,16 @@
     nixpkgs,
     nixos-apple-silicon,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "aarch64-linux";
+    pkgs = import nixpkgs {
+      config.allowUnfree = true;
+      overlays = [nixos-apple-silicon.overlays.default];
+    };
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
+        inherit system pkgs;
         modules = [
           ./configuration.nix
         ];
