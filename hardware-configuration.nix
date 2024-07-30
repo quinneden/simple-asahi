@@ -18,12 +18,12 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-partlabel/nixos-ext";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/EFI - NIXOS";
+    device = "/dev/disk/by-partuuid/A63E-863C";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
